@@ -1,0 +1,341 @@
+body {
+    background-color: #F4F2F2;
+}
+
+.background-image {
+    background-image: url("../img/background-login-register-page.jpg");
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/*navbar*/
+nav {
+    box-shadow:  0 3px 5px 0 rgba(0,0,0,0.2);
+}
+
+nav a {
+    color: white !important;
+    font-size: 17px;
+}
+nav a:hover{
+    background: #9AAB01 !important;
+}
+
+nav {
+    background: #A6B523 !important;
+}
+
+.navbar-dropdown{
+    background-color: #A6B523 !important;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: #FFFFFF !important;
+}
+
+.addition-logo {
+    color: white;
+    font-size: 20px;
+    padding: 0;
+}
+
+.centered {
+    display:flex !important;
+    justify-content: center !important;
+}
+
+/*create*/
+.fixed_header{
+    width: 520px;
+    border-collapse: collapse;
+}
+
+.fixed_header tbody{
+    display:block;
+    overflow: auto;
+    height: 550px;
+}
+
+.fixed_header thead tr {
+    display: block;
+}
+
+
+.fixed_header th, .fixed_header td {
+    width: 100px;
+}
+
+.fixed_header td {
+    border-bottom: none;
+    border-left: #D1D1D1 2px solid;
+    border-right: #D1D1D1 2px solid;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-top: 7px;
+}
+
+.fixed_header th {
+    border-left: #D1D1D1 2px solid;
+    border-right: #D1D1D1 2px solid;
+    border-bottom: #D1D1D1 2px solid;
+    padding: 5px;
+}
+
+
+/*calender*/
+.calender thead, .calender tbody {
+    display: block;
+}
+
+.calender tbody {
+    overflow-y: auto;
+    height: 635px;
+}
+
+.calender td{
+    background-color: #D1D1D1;
+    border-bottom: solid 15px white;
+    border-top: solid 15px white;
+}
+
+.calender td:last-child{
+    border-right: solid 15px white;
+}
+
+.calender th, .calender td{
+    min-width: 245px;
+    width: 250px;
+    text-align: center !important;
+}
+
+.calender th:first-child {
+    min-width:80px;
+    width: 80px;
+    padding: 20px;
+}
+
+.calender th:first-child {
+    min-width:80px;
+    width: 80px;
+    padding: 20px;
+}
+
+.calender td:first-child{
+    min-width: 60px;
+    width: 60px;
+    padding: 20px;
+    border:none;
+    background: none;
+    border-right: solid 15px white;
+}
+
+.top-calender {
+    display:flex !important;
+    flex-direction: row !important;
+    justify-content: space-between; !important
+}
+
+.side-by-side {
+    display:flex !important;
+    flex-direction: row !important;
+}
+
+/*button*/
+.button {
+    background-color: #A6B523 !important;
+    color: white !important;
+    border-radius: 30px !important;
+    box-shadow:  0 5px 5px 0 rgba(0,0,0,0.2);
+    border:none !important;
+    margin-right: 5px;
+}
+
+.grey {
+    background-color: #7D7D7D !important;
+}
+
+.white {
+    background-color: white !important;
+    color: black !important;
+}
+
+.selected {
+    border: solid 2px white !important;
+    background-color: #FF5A00 !important;
+}
+
+.disabled {
+    background-color: white !important;
+    color: #A6B523 !important;
+    border: #A6B523 solid 2px !important;
+}
+
+.button-cell {
+    margin-top: 3px;
+    margin-left: 15px;
+    margin-right: 10px;
+    width: 170px;
+    padding: 6px;
+}
+
+.if-overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button-cell:first-child {
+    margin-right: 10px;
+}
+
+.button-navigation {
+    width: 50px;
+}
+
+.button:hover {
+    background-color: #FF5A00 !important;
+}
+
+.white:hover {
+    color: #A6B523 !important;
+    background-color: white !important;
+}
+
+.is-active {
+    box-shadow: inset 0 -6px 0 #fff;
+}
+
+.disabled:hover{
+    color: #A6B523 !important;
+    background-color: white !important;
+}
+
+selected-disabled {
+
+}
+
+/*text*/
+.has-text-success {
+    color: #A6B523 !important;
+}
+
+h1, h2 {
+    font-family: 'ProximaNova-Black',sans-serif !important;
+}
+
+button, body {
+    font-family: 'ProximaNova-Regular',sans-serif !important;
+}
+
+.title {
+    font-weight: normal !important;
+}
+
+.input{
+    border-radius: 30px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.full-height{
+    height: 90vh;
+}
+
+.height-1 {
+    height: 69vh;
+}
+
+.height-2 {
+    height: 82vh;
+}
+
+
+
+.register-login {
+    background-color: #F4F2F2;
+    border-radius: 30px;
+    padding: 30px;
+    width: 35%;
+}
+
+
+.is-flex-direction-column {
+    display: flex;
+}
+
+.is-flex-direction-row {
+    display: flex;
+}
+
+.center {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.password-link {
+    text-decoration: underline;
+    color: #A6B523;
+}
+
+.content-customer {
+    padding: 20px;
+    background-color: #F4F2F2;
+    height: 550px;
+    width: 600px;
+    box-shadow:  0 5px 5px 0 rgba(0,0,0,0.4);
+}
+
+.bigger-content{
+    width: 70vw !important;
+    height: 700px !important;
+}
+
+
+.date_time {
+    height: 400px !important;
+}
+
+footer {
+    background-color: rgba(59, 59, 47, 0.69);
+    color: white;
+    padding: 24px 50px 24px 24px;
+}
+
+footer h1 {
+    color: white !important;
+}
+
+.profile {
+    border-radius: 30px;
+}
+
+.content-profile {
+    text-align: left !important;
+}
+
+.info {
+    height: 150px;
+    overflow-y: auto;
+}
+
+.background {
+    background-color: #F4F2F2;
+}
+
+.white-text {
+    color: white;
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar-item.has-dropdown.is-active .navbar-link, .navbar-item.has-dropdown:focus
+    .navbar-link, .navbar-item.has-dropdown:hover .navbar-link {
+        background-color: #9AAB01;
+    }
+}
+
