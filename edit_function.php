@@ -15,8 +15,8 @@ $date = mysqli_escape_string($db, $_GET['date']);
 
 // store week and year of selected appointment
 // to be able to redirect to the index page with that year and week again
-$week = mysqli_escape_string($db, $_GET['week']);
-$year = mysqli_escape_string($db, $_GET['year']);
+$week = $_GET['week'];
+$year = $_GET['year'];
 
 //save new time and date in the database
     $queryEdit = "UPDATE `appointments` 

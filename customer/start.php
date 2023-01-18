@@ -45,18 +45,18 @@ mysqli_close($db);
 <div class="height-1">
     <div class="section center">
         <div class="content-customer">
-            <h1 class="title has-text-centered">Afspraak maken met <?= $employee['name'] ?></h1>
+            <h1 class="title has-text-centered">Afspraak maken met <?=htmlentities($employee['name'])?></h1>
             <hr style="height:2px;border-width:0;background-color:#A6B523;margin:auto">
             <div class="is-flex-direction-row mt-3 ml-5">
                 <img class="profile" src="https://thispersondoesnotexist.com/image" alt="profile picture" width="220" height="300">
                 <div class="content-profile ml-6 mt-3">
                     <div class="contact">
-                        <p><b>Telefoonnummer:</b><br><?= $employee['phone_number'] ?></p>
-                        <p class="mt-2"><b>Email:</b> <br><?= $employee['email'] ?></p>
+                        <p><b>Telefoonnummer:</b><br><?= htmlentities($employee['phone_number'])?></p>
+                        <p class="mt-2"><b>Email:</b> <br><?= htmlentities($employee['email'])?></p>
                     </div>
                 </div>
             </div>
-            <p class="info mt-3 ml-5"><?= $employee['info'] ?></p>
+            <p class="info mt-3 ml-5"><?= htmlentities($employee['info'])?></p>
             <div class="has-text-centered">
                 <a href="date_time_customer.php?id=<?=$employeeId?>" class="button mt-3 ml-6 mr-6">Maak afspraak >></a>
             </div>

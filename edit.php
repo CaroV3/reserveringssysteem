@@ -11,8 +11,8 @@ require_once 'includes/login_check.php';
 $id = mysqli_escape_string($db, $_GET['id']);
 // store week and year of selected appointment
 // to be able to redirect to the index page with that year and week again
-$year = mysqli_escape_string($db, $_GET['year']);
-$week = mysqli_escape_string($db, $_GET['week']);
+$year = $_GET['year'];
+$week = $_GET['week'];
 
 //edit
 if(isset($_POST['editItem'])) {
@@ -105,7 +105,7 @@ mysqli_close($db);
 
     <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-end">
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item is-active" href="index.php">
                 Mijn afspraken
             </a>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -121,7 +121,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -140,7 +140,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="name" type="text" name="name" value="<?= $name ?? $appointment['name'] ?>"/>
+                            <input class="input" id="name" type="text" name="name" value="<?=isset($name) ? htmlentities($name) : htmlentities($appointment['name'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['name'] ?? '' ?>
@@ -156,7 +156,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="phoneNumber" type="text" name="phoneNumber" value="<?= $phoneNumber ?? $appointment['phone_number'] ?>"/>
+                            <input class="input" id="phoneNumber" type="text" name="phoneNumber" value="<?=isset($phoneNumber) ? htmlentities($phoneNumber) : htmlentities($appointment['phone_number']) ?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['phoneNumber'] ?? '' ?>
@@ -172,7 +172,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="email" type="email" name="email" value="<?= $email ?? $appointment['email']  ?>"/>
+                            <input class="input" id="email" type="email" name="email" value="<?=isset($email) ? htmlentities($email) : htmlentities($appointment['email'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['email'] ?? '' ?>
@@ -188,7 +188,7 @@ mysqli_close($db);
                 <div class="field-body mr-4">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="address" type="text" name="address" value="<?= $address ?? $appointment['address']?>"/>
+                            <input class="input" id="address" type="text" name="address" value="<?=isset($address) ? htmlentities($address) : htmlentities($appointment['address'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['address'] ?? '' ?>
@@ -206,7 +206,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <select class="select" id="typeAppointment" name="typeAppointment">
+                            <select class="select input" id="typeAppointment" name="typeAppointment">
                                 <?php if ($appointment['type_appointment_id'] == 1) {?>
                                     <option selected value="1">Machine bezichtigen</option>
                                     <option value="2">Videobellen</option>
@@ -231,7 +231,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="machineNumber" type="text" name="machineNumber" value="<?= $machineNumber ?? $appointment['machine_number']  ?>"/>
+                            <input class="input" id="machineNumber" type="text" name="machineNumber" value="<?=isset($machineNumber) ? htmlentities($machineNumber) : htmlentities($appointment['machine_number'])?>"/>
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <textarea class="input" id="comment" name="comment"><?= $comment ?? $appointment['comment']?></textarea>
+                            <textarea class="input" id="comment" name="comment"><?=isset($comment) ? htmlentities($comment) : htmlentities($appointment['comment'])?></textarea>
                         </div>
                     </div>
                 </div>
@@ -260,8 +260,7 @@ mysqli_close($db);
         </form>
     </section>
     <div>
-
-        <a class="button" href="details.php?id=<?= $appointment['id'] ?>&year=<?= $year?>&week=<?= $week ?>">Annuleer</a>
+        <a class="button grey" href="details.php?id=<?= $appointment['id'] ?>&year=<?= $year?>&week=<?= $week ?>">Annuleer</a>
     </div>
 </body>
 </html>

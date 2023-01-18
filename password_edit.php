@@ -21,7 +21,7 @@ $user = mysqli_fetch_assoc($result);
 if(isset($_POST['editItem'])) {
 
 //Postback with the data showed to the user, first retrieve data from 'Super global'
-    $oldPassword = mysqli_escape_string($db, $_POST['old-password']);
+    $oldPassword = $_POST['old-password'];
     $password = $_POST['new-password'];
 
 //Check if data is valid & generate error if not so
@@ -103,7 +103,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -160,6 +160,7 @@ mysqli_close($db);
             </div>
         </form>
     </section>
+    <a class="button grey" href="profile.php">Annuleer</a>
 </div>
 </body>
 </html>

@@ -103,7 +103,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item is-active" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -122,7 +122,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="name" type="text" name="name" value="<?= $name ?? $user['name'] ?>"/>
+                            <input class="input" id="name" type="text" name="name" value="<?=isset($name) ? htmlentities($name) : htmlentities($user['name'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['name'] ?? '' ?>
@@ -138,7 +138,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="phoneNumber" type="text" name="phoneNumber" value="<?= $phoneNumber ?? $user['phone_number'] ?>"/>
+                            <input class="input" id="phoneNumber" type="text" name="phoneNumber" value="<?=isset($phoneNumber) ? htmlentities($phoneNumber) : htmlentities($user['phone_number'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['phoneNumber'] ?? '' ?>
@@ -154,7 +154,7 @@ mysqli_close($db);
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="email" type="email" name="email" value="<?= $email ?? $user['email']?>"/>
+                            <input class="input" id="email" type="email" name="email" value="<?=isset($email) ? htmlentities($email) : htmlentities($user['email'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['email'] ?? '' ?>
@@ -169,7 +169,7 @@ mysqli_close($db);
                 <div class="field-body mr-4">
                     <div class="field">
                         <div class="control">
-                            <input class="input" id="info" type="text" name="info" value="<?= $info ?? $user['info']?>"/>
+                            <input class="input" id="info" type="text" name="info" value="<?=isset($info) ? htmlentities($info) : htmlentities($user['info'])?>"/>
                         </div>
                         <p class="help is-danger">
                             <?= $errors['info'] ?? '' ?>
@@ -184,9 +184,9 @@ mysqli_close($db);
                     <button class="button is-link is-fullwidth" type="submit" name="editItem">Bewaar wijzigingen</button>
                 </div>
             </div>
-
         </form>
 </section>
+    <a class="button grey" href="profile.php">Annuleer</a>
 </div>
 </body>
 </html>

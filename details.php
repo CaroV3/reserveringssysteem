@@ -11,11 +11,11 @@ require_once 'includes/login_check.php';
 //get data from url
 $id = mysqli_escape_string($db, $_GET['id']);
 
-$week = mysqli_escape_string($db, $_GET['week']);
-$year = mysqli_escape_string($db, $_GET['year']);
+$week = $_GET['week'];
+$year = $_GET['year'];
 
-$weekAp=  mysqli_escape_string($db, $_GET['week']);
-$yearAp=  mysqli_escape_string($db, $_GET['year']);
+$weekAp= $_GET['week'];
+$yearAp= $_GET['year'];
 
 //get data of selected appointment from database
 $query = "SELECT appointments.*, types_appointment.name AS type_name FROM appointments 
@@ -41,6 +41,7 @@ mysqli_close($db);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -59,7 +60,7 @@ mysqli_close($db);
 
     <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-end">
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item is-active" href="index.php">
                 Mijn afspraken
             </a>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -75,7 +76,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -85,24 +86,29 @@ mysqli_close($db);
     </div>
 </nav>
 <div class="container px-4 full-height">
+    <a class="button grey mt-5 mb-2" href="index.php?&year=<?=$year?>&week=<?=$week?>">Terug naar agenda</a>
+
     <div class="side-by-side">
-        <h1 class="title mt-5"><?=$appointment['date']?> <?=$appointment['time']?> afspraak met <?= $appointment['name'] ?></h1>
-        <a class="button ml-5 is-align-self-center" href="date_time_edit.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>&yearAp=<?=$yearAp?>&weekAp=<?=$weekAp?>">Wijzig datum of tijd</a>
+        <h1 class="title mt-5"><?=htmlentities($appointment['date'])?> <?=htmlentities($appointment['time'])?> afspraak met <?=htmlentities($appointment['name'])?></h1>
     </div>
     <hr style="height:2px;border-width:0;background-color:#A6B523;margin:auto">
         <section class="content">
             <ul>
-                <li>Telefoonnummer: <?= $appointment['phone_number'] ?></li>
-                <li>Email: <?= $appointment['email'] ?></li>
-                <li>Adres: <?= $appointment['address'] ?></li>
-                <li>Type afspraak: <?= $appointment['type_name'] ?></li>
-                <li>Machine: <?= $appointment['machine_number'] ?></li>
-                <li>Opmerking: <?= $appointment['comment'] ?></li>
+                <li><b>Telefoonnummer:</b> <?= htmlentities($appointment['phone_number'])?></li>
+                <li><b>Email: </b><?= htmlentities($appointment['email'] )?></li>
+                <li><b>Adres:</b> <?= htmlentities($appointment['address'] )?></li>
+                <li><b>Type afspraak:</b> <?= htmlentities($appointment['type_name']) ?></li>
+                <li><b>Machine:</b> <?= htmlentities($appointment['machine_number'])?></li>
+                <li><b>Opmerking:</b> <?= htmlentities($appointment['comment'])?></li>
             </ul>
-            <div>
-                <a class="button" href="delete.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>">Verwijder afspraak</a>
-                <a class="button" href="edit.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>">Bewerk details</a>
-                <a class="button" href="index.php?&year=<?=$year?>&week=<?=$week?>">Terug naar agenda</a>
+            <div class="is-flex-direction-column">
+                <div>
+                    <a class="button is-align-self-center" href="date_time_edit.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>&yearAp=<?=$yearAp?>&weekAp=<?=$weekAp?>">Wijzig datum of tijd</a>
+                    <a class="button" href="edit.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>">Bewerk details</a>
+                    <a class="button grey" href="delete.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>">Verwijder afspraak</a>
+                </div>
+                <div>
+                </div>
             </div>
         </section>
 </body>

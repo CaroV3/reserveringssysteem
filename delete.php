@@ -9,8 +9,8 @@ require_once 'includes/login_check.php';
 
 //get data from url
 $id = mysqli_escape_string($db, $_GET['id']);
-$year = mysqli_escape_string($db, $_GET['year']);
-$week = mysqli_escape_string($db, $_GET['week']);
+$year =  $_GET['year'];
+$week = $_GET['week'];
 
 
 //delete
@@ -80,7 +80,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -90,15 +90,15 @@ mysqli_close($db);
     </div>
 </nav>
 <div class="container is-flex-direction-column full-height px-4">
-    <span class="icon is-size-2 ml-1 mt-5"><i class="fas fa-trash-can"></i></span>
-    <h1 class="content mt-3"> Weet u zeker dat u de afspraak met <b><?= $appointment['name'] ?></b>
-        op <b><?=$appointment['date']?></b>
-        om <b><?=$appointment['time']?></b> wilt verwijderen?</h1>
+    <span class="icon is-size-2 ml-1 mt-6"><i class="fas fa-trash-can"></i></span>
+    <h1 class="content mt-6"> Weet u zeker dat u de afspraak met <b><?=htmlentities($appointment['name'])?></b>
+        op <b><?=htmlentities($appointment['date'])?></b>
+        om <b><?=htmlentities($appointment['time'])?></b> wilt verwijderen?</h1>
     <div class="columns">
         <form action="" method="post">
             <button class="button" type="submit" name="deleteItem">Bevestig</button>
         </form>
-        <a class="button" href="details.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>">Annuleer</a>
+        <a class="button grey" href="details.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$week?>">Annuleer</a>
     </div>
 </body>
 </html>

@@ -144,7 +144,7 @@ for ($x = 1; $x <= $day_count; $x++) {
                 <img  src="img/search.png" alt="search icon" class="icon mt-2 mr-2"/>
             </label>
             <form>
-                <input class="input"  id=search-bar placeholder="Zoek in afspraken" value="<?= $street ?? '' ?>">
+                <input class="input"  id=search-bar placeholder="Zoek in afspraken" value="">
             </form>
         </div>
     </div>
@@ -173,7 +173,7 @@ for ($x = 1; $x <= $day_count; $x++) {
                                     if ($appointment['date'] == $day['date']) {
                                         if ($appointment['time'] == $time) {?>
                                             <a class="button button-cell" href="details.php?id=<?=$appointment['id']?>&year=<?=$year?>&week=<?=$yearWeek?>">
-                                                <p class="if-overflow"><?= $appointment['name'];?></p>
+                                                <p class="if-overflow"><?=htmlentities($appointment['name']);?></p>
                                             </a>
                                         <?php } ?>
                                     <?php }?>

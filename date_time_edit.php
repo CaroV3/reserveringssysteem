@@ -16,11 +16,11 @@ require_once 'includes/login_check.php';
 $id= mysqli_escape_string($db, $_GET['id']);
 // store week and year of selected appointment
 // to be able to redirect to the index page with that year and week again
-$weekAp= mysqli_escape_string($db, $_GET['weekAp']);
-$yearAp= mysqli_escape_string($db, $_GET['yearAp']);
+$weekAp= $_GET['weekAp'];
+$yearAp= $_GET['yearAp'];
 
 //get data of selected appointment from database
-$query = "SELECT * FROM `appointments` WHERE id = '$id' AND user_id = '$userId'";
+$query = "SELECT * FROM `appointments` WHERE id = '$id'";
 $result = mysqli_query($db, $query)
 or die('Error '.mysqli_error($db).' with query '.$query);
 
@@ -179,7 +179,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -189,7 +189,7 @@ mysqli_close($db);
     </div>
 </nav>
 <div class="container px-4 full-height">
-    <h1 class="title mt-4">Wijzig datum of tijd van afspraak met <?=$appointment['name']?></h1>
+    <h1 class="title mt-4">Wijzig datum of tijd van afspraak met <?=htmlentities($appointment['name'])?></h1>
     <hr>
     <?php if (($prev['week'] >= $currentWeek && $year == $currentYear) || $year > $currentYear ){?>
         <a href="?id=<?=$id?>&year=<?=$year;?>&week=<?=$prev['week'];?>&yearAp=<?=$yearAp?>&weekAp=<?=$weekAp?>" class="button button-navigation"><</a>
@@ -199,7 +199,7 @@ mysqli_close($db);
 
     <a href="?id=<?=$id?>&year=<?=$year;?>&week=<?=$next['week'];?>&yearAp=<?=$yearAp?>&weekAp=<?=$weekAp?>" class="button button-navigation">></a>
     <a href="date_time_edit.php?id=<?=$id?>&yearAp=<?=$yearAp?>&weekAp=<?=$weekAp?>" class="button">Huidige week</a>
-    <a class="button" href="details.php?id=<?=$id?>&year=<?=$yearAp?>&week=<?=$weekAp?>">Annuleer</a>
+    <a class="button grey" href="details.php?id=<?=$id?>&year=<?=$yearAp?>&week=<?=$weekAp?>">Annuleer</a>
     <h2 class="title mt-4 has-text-centered"><?=$month?> <?=$year?></h2>
     <div class="center">
         <table class="fixed_header">

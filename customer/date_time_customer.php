@@ -144,14 +144,14 @@ mysqli_close($db);
             <div class="top-calender">
                 <div>
                     <?php if (($prev['week'] >= $currentWeek && $year == $currentYear) || $year > $currentYear ){?>
-                        <a href="?year=<?=htmlentities($year);?>&week=<?=htmlentities($prev['week']);?>&id=<?=htmlentities($employeeId)?>" class="button mt-3 button-navigation"><</a>
+                        <a href="?year=<?=$year;?>&week=<?=$prev['week'];?>&id=<?=$employeeId?>" class="button mt-3 button-navigation"><</a>
                     <?php } else {?>
                         <a disabled class="button button-navigation mt-3"><</a>
                     <?php } ?>
-                    <a href="?year=<?=htmlentities($year);?>&week=<?=htmlentities($next['week']);?>&id=<?=htmlentities($employeeId)?>" class="button mt-3 button-navigation">></a>
+                    <a href="?year=<?=$year;?>&week=<?=$next['week'];?>&id=<?=$employeeId?>" class="button mt-3 button-navigation">></a>
                 </div>
-                <h2 class="title mt-3"><?=htmlentities($month)?> <?=htmlentities($year)?></h2>
-                <a href="date_time_customer.php?id=<?=htmlentities($employeeId)?>" class="button mt-3">Huidige week</a>
+                <h2 class="title mt-3"><?=$month?> <?=$year?></h2>
+                <a href="date_time_customer.php?id=<?=$employeeId?>" class="button mt-3">Huidige week</a>
 
             </div>
 
@@ -161,9 +161,9 @@ mysqli_close($db);
                     <tr>
                         <?php foreach ($week as $day) {
                             if ($today == $day['date']) {?>
-                                <th class="has-text-success has-text-centered"><?=htmlentities($day['day']);?> <br> <?=htmlentities($day['dateNumber']);?></th>
+                                <th class="has-text-success has-text-centered"><?=$day['day'];?> <br> <?=$day['dateNumber'];?></th>
                             <?php } else {?>
-                                <th class="has-text-centered" ><?=htmlentities($day['day']);?> <br> <?= htmlentities($day['dateNumber']);?></th>
+                                <th class="has-text-centered" ><?=$day['day'];?> <br> <?= $day['dateNumber'];?></th>
                             <?php } ?>
                         <?php }?>
                     </tr>
@@ -173,9 +173,9 @@ mysqli_close($db);
                         <tr>
                             <?php foreach ($availableTimesWeek as $date => $availableTimesDay){
                                 if (($availableTimesDay[$x] =='Bezet' || $availableTimesDay[$x] < $currentTime && $date == $today) || $date < $today ) {?>
-                                    <td><a class="button disabled" disabled><?=htmlentities($availableTimesDay[$x]); ?></a></td>
+                                    <td><a class="button disabled" disabled><?=$availableTimesDay[$x]; ?></a></td>
                                 <?php } else {?>
-                                    <td><a class="button" href="create_customer.php?id=<?=htmlentities($employeeId)?>&time=<?=htmlentities($availableTimesDay[$x]);?>&date=<?=htmlentities($date)?>&year=<?=htmlentities($year)?>&week=<?=htmlentities($yearWeek)?>"><?=htmlentities($availableTimesDay[$x]);?></a></td>
+                                    <td><a class="button" href="create_customer.php?id=<?=$employeeId?>&time=<?=$availableTimesDay[$x];?>&date=<?=$date?>&year=<?=$year?>&week=<?=$yearWeek?>"><?=$availableTimesDay[$x];?></a></td>
                                 <?php } ?>
                             <?php }?>
                         </tr>
@@ -184,7 +184,7 @@ mysqli_close($db);
                 </table>
             </div>
             <div class="is-flex-direction-row center is-justify-content-space-between">
-                <a class="button mt-5" href="start.php?id=<?=htmlentities($employeeId)?>">&laquo; Stap terug</a>
+                <a class="button grey mt-5" href="start.php?id=<?=$employeeId?>">&laquo; Stap terug</a>
             </div>
         </div>
     </div>

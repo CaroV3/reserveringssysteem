@@ -63,7 +63,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item is-active" href="index.php">
+            <a class="navbar-item is-active" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -79,15 +79,14 @@ mysqli_close($db);
     <hr style="height:2px;border-width:0;background-color:#A6B523;">
     <section class="content">
         <ul>
-            <li>Naam: <?= $user['name'] ?></li>
-            <li>Telefoonnummer: <?= $user['phone_number'] ?? '' ?></li>
-            <li>Email: <?= $user['email'] ?></li>
-            <li>Info: <?= $user['info'] ?? '' ?></li>
+            <li><b>Naam:</b> <?= htmlentities($user['name'] )?></li>
+            <li><b>Telefoonnummer:</b> <?= htmlentities($user['phone_number'])?></li>
+            <li><b>Email:</b> <?= htmlentities($user['email'] )?></li>
+            <li><b>Info:</b> <?= htmlentities($user['info']) ?></li>
         </ul>
         <div>
             <a class="button" href="profile_edit.php?id=<?=$user['id']?>">Bewerk profiel</a>
-            <a class="button" href="password_edit.php?id=<?=$user['id']?>">Wijzig wachtwoord</a>
-            <a class="button" href="index.php">Terug naar agenda</a>
+            <a class="button grey" href="password_edit.php?id=<?=$user['id']?>">Wijzig wachtwoord</a>
         </div>
     </section>
 </div>

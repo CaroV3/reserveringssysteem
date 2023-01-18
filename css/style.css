@@ -210,10 +210,6 @@ nav {
     background-color: white !important;
 }
 
-selected-disabled {
-
-}
-
 /*text*/
 .has-text-success {
     color: #A6B523 !important;
@@ -252,8 +248,6 @@ button, body {
 .height-2 {
     height: 82vh;
 }
-
-
 
 .register-login {
     background-color: #F4F2F2;
@@ -331,6 +325,13 @@ footer h1 {
 .white-text {
     color: white;
 }
+
+
+.ml-8 {
+    margin-left: 85px;
+}
+
+
 
 @media screen and (min-width: 1024px) {
     .navbar-item.has-dropdown.is-active .navbar-link, .navbar-item.has-dropdown:focus

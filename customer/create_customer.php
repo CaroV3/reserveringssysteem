@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         //Close connection with the database
         mysqli_close($db);
 
-        // Redirect to index.php with correct year and week of the appointment
+        // Redirect to thank you page
         header("Location: thank_you.php?id=$employeeId");
         $employeeId = "";
         exit;
@@ -125,7 +125,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
 
-                    <div class="field is-horizontal">
+                    <div class="field is-horizontal  ml-8">
                             <div class="field-label is-normal">
                                 <label class="label" for="street">Straat*</label>
                             </div>
@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
 
-                    <div class="field is-horizontal">
+                    <div class="field is-horizontal  ml-8">
                             <div class="field-label is-normal">
                                 <label class="label" for="city">Plaats*</label>
                             </div>
@@ -247,7 +247,7 @@ if (isset($_POST['submit'])) {
                 </form>
             </section>
             <div class="is-flex-direction-row center is-justify-content-space-between">
-                <a class="button mt-5" href="date_time_customer.php?id=<?=$employeeId?>&year=<?=$year?>&week=<?=$week?>">&laquo; Stap terug</a>
+                <a class="button grey mt-5" href="date_time_customer.php?id=<?=$employeeId?>&year=<?=$year?>&week=<?=$week?>">&laquo; Stap terug</a>
                 <p class="mt-5">* = verplicht</p>
             </div>
         </div>

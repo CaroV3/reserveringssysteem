@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
                     <div class="login-field ">
                         <label class="label ml-3" for="email">Email</label>
                         <div class="control has-icons-left">
-                            <input class="input " id="email" type="text" name="email" value="<?= $email ?? '' ?>"/>
+                            <input class="input " id="email" type="text" name="email" value="<?=isset($email) ? htmlentities($email) : '' ?>"/>
                             <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
                         </div>
                         <p class="ml-3 help is-danger">

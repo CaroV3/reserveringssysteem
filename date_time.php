@@ -153,7 +153,7 @@ mysqli_close($db);
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="index.php">
+            <a class="navbar-item" href="profile.php">
                 Mijn gegevens
             </a>
             <a class="navbar-item" href="logout.php">
@@ -172,7 +172,6 @@ mysqli_close($db);
     <?php } ?>
     <a href="?year=<?=$year;?>&week=<?=$next['week'];?>" class="button mt-5 button-navigation">></a>
     <a href="date_time.php" class="button mt-5">Huidige week</a>
-    <a href="index.php" class="button mt-5">Terug naar afspraken</a>
 
     <h2 class="title mt-4 has-text-centered"><?=$month?> <?=$year?></h2>
     <div class="centered">

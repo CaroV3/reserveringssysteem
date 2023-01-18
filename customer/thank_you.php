@@ -47,7 +47,7 @@ mysqli_close($db);
     <div class="section center">
         <div class="content-customer">
             <h1 class="title has-text-centered">Bedankt!</h1>
-           <p class="has-text-centered">Het is gelukt om een afspraak te maken met <?=$employee['name']?>.</p>
+           <p class="has-text-centered">Het is gelukt om een afspraak te maken met <?=htmlentities($employee['name'])?>.</p>
         </div>
     </div>
 </div>
